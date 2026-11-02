@@ -1653,7 +1653,7 @@ services:
       # install is still reachable only from the machine it runs on. Put it
       # behind a reverse proxy with TLS before anything hostile can route to
       # it; see apps/docs/docs/deployment/single-host.md.
-      - "${AISOC_CONSOLE_BIND_ADDR:-${AISOC_BIND_ADDR:-127.0.0.1}}:3000:3000"
+      - "${AISOC_CONSOLE_BIND_ADDR:-${AISOC_BIND_ADDR:-127.0.0.1}}:${AISOC_CONSOLE_PORT:-3005}:3000"
     environment:
       # Where this server proxies to. These are read at container start by
       # apps/web/docker-entrypoint.sh, which re-points the compiled rewrite
