@@ -347,9 +347,9 @@ services:
   # ─── Application Services ────────────────────────────────────────────────────
 
   api:
-    build:
-      context: ./services/api
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/api
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-core-api:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-api
@@ -565,9 +565,9 @@ services:
     restart: unless-stopped
 
   ingest-worker:
-    build:
-      context: ./services/ingest
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/ingest
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-ingest:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-ingest
@@ -649,9 +649,9 @@ services:
   enrichment:
     # full profile — Fuse-time threat-intel and vulnerability enrichment. Alerts fire without it.
     profiles: ["full"]
-    build:
-      context: ./services/enrichment
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/enrichment
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-enrichment:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-enrichment
@@ -674,9 +674,9 @@ services:
     restart: unless-stopped
 
   fusion:
-    build:
-      context: ./services/fusion
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/fusion
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-fusion:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-fusion
@@ -727,9 +727,9 @@ services:
     restart: unless-stopped
 
   agents:
-    build:
-      context: ./services/agents
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/agents
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-agents:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-agents
@@ -991,9 +991,9 @@ services:
     restart: unless-stopped
 
   osquery-tls:
-    build:
-      context: ./services/osquery-tls
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/osquery-tls
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-osquery-tls:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-osquery-tls
@@ -1071,9 +1071,9 @@ services:
     # No `profiles:` key rather than a longer list: a service in no profile is
     # included in every profile run, so `chatops` still gets it and
     # slack-bot's dependency still renders.
-    build:
-      context: ./services/actions
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/actions
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-actions:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-actions
@@ -1117,9 +1117,9 @@ services:
     #
     # The poll scheduler is per-instance, so a fresh install schedules nothing
     # until an operator saves a connector.
-    build:
-      context: ./services/connectors
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/connectors
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-connectors:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-connectors
@@ -1212,9 +1212,9 @@ services:
     # something invented some.
     #
     # Measured: 1.4 GB image, 219 MiB RSS steady state.
-    build:
-      context: ./services/threatintel
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/threatintel
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-threatintel:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-threatintel
@@ -1269,9 +1269,9 @@ services:
   ueba:
     # full profile — Behavioural baselining. Consumes its own topic; see docs/audit/REPOSITORY_REALITY.md.
     profiles: ["full"]
-    build:
-      context: ./services/ueba
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/ueba
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-ueba:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-ueba
@@ -1329,9 +1329,9 @@ services:
     # publish matrix now, so `--profile extras` pulls like every other
     # service instead of spending ten minutes building one.
     profiles: ["extras"]
-    build:
-      context: ./services/honeytokens
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/honeytokens
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-honeytokens:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-honeytokens
@@ -1388,9 +1388,9 @@ services:
     # publish matrix now, so `--profile extras` pulls like every other
     # service instead of spending ten minutes building one.
     profiles: ["extras"]
-    build:
-      context: ./services/purple-team
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/purple-team
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-purple-team:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-purple-team
@@ -1438,9 +1438,9 @@ services:
     restart: unless-stopped
 
   realtime:
-    build:
-      context: ./services/realtime
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/realtime
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-realtime:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-realtime
@@ -1471,9 +1471,9 @@ services:
   # under the `chatops` profile so a default `docker compose up` doesn't fail
   # when the operator has not yet provisioned a Slack app or service tokens.
   slack-bot:
-    build:
-      context: ./services/slack-bot
-      dockerfile: Dockerfile
+    # build:
+    #   context: ./services/slack-bot
+    #   dockerfile: Dockerfile
     image: ghcr.io/beenuar/aisoc-slack-bot:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-slack-bot
@@ -1631,9 +1631,9 @@ services:
     restart: unless-stopped
 
   web:
-    build:
-      context: .
-      dockerfile: apps/web/Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: apps/web/Dockerfile
     image: ghcr.io/beenuar/aisoc-web:${AISOC_VERSION:-latest}
     pull_policy: ${AISOC_PULL_POLICY:-missing}
     container_name: aisoc-web
